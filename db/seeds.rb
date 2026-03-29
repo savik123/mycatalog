@@ -1,19 +1,19 @@
-require 'open-uri'
+puts "🚀 SEED START"
 
-folder = Rails.root.join('db', 'images')
+Equipment.destroy_all
 
-Dir.glob(folder.join('*')).each do |file_path|
-  filename = File.basename(file_path, '.*')
+Equipment.create!(
+  name: "CreatBot D600 Pro",
+  purpose: "Крупноформатная 3D-печать",
+  description: "Промышленный 3D-принтер",
+  keywords: "3d принтер печать"
+)
 
-  equipment = Equipment.find_by("LOWER(name) LIKE ?", "%#{filename.downcase}%")
+Equipment.create!(
+  name: "Epson",
+  purpose: "Печать документов",
+  description: "Офисный принтер",
+  keywords: "принтер печать"
+)
 
-  if equipment
-    equipment.images.attach(
-      io: File.open(file_path),
-      filename: File.basename(file_path)
-    )
-    puts "✔ #{equipment.name}"
-  else
-    puts "❌ Не найдено: #{filename}"
-  end
-end
+puts "✅ CREATED: #{Equipment.count}"
