@@ -88,6 +88,8 @@ mapping = {
   "photon" => "Anycubic Photon M3 Max",
   "lukey" => "Lukey 702",
   "element" => "Element 702",
+  "jsg-64" => "JET Disc & Belt Sander JSG-64",
+  "jmd-1l-127" => "JET Milling Machine JMD-1L-127",
 }
 
 Dir.glob(folder.join('*')).each do |file_path|
