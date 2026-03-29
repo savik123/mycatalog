@@ -58,7 +58,8 @@ mapping = {
   "mp29" => "Milling Machine MP29S",
   "x32100" => "Metal Master X32100",
   "photon" => "Anycubic Photon M3 Max",
-  "lukey" => "Lukey 702"
+  "lukey" => "Lukey 702",
+  "element" => "Element 702"
 }
 
 Dir.glob(folder.join('*')).each do |file_path|
