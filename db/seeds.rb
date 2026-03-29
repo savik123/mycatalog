@@ -1,9 +1,19 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+require 'open-uri'
+
+folder = Rails.root.join('db', 'images')
+
+Dir.glob(folder.join('*')).each do |file_path|
+  filename = File.basename(file_path, '.*')
+
+  equipment = Equipment.find_by("LOWER(name) LIKE ?", "%#{filename.downcase}%")
+
+  if equipment
+    equipment.images.attach(
+      io: File.open(file_path),
+      filename: File.basename(file_path)
+    )
+    puts "✔ #{equipment.name}"
+  else
+    puts "❌ Не найдено: #{filename}"
+  end
+end
