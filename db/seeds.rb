@@ -1,11 +1,6 @@
 puts "🚀 CREATE EQUIPMENT"
 
-Equipment.destroy_all
-mapping = {
-  "proma" => "Proma FP-20A",
-  "roven" => "Вентилятор осевой РОВЕН",
-  "jetdisc" => "JET Disc & Belt Sander JSG-64"
-}
+
 equipments = [
   { name: "JET Metal Lathe BD-10VS", purpose: "Токарная обработка металла", description: "Настольный токарный станок", keywords: "станок токарный металл" },
   { name: "Anycubic Photon M3 Max", purpose: "3D-печать (смола)", description: "3D-принтер для печати из фотополимерной смолы", keywords: "3d принтер смола" },
@@ -47,18 +42,24 @@ puts "✅ CREATED: #{Equipment.count}"
 puts "🖼 ATTACH IMAGES"
 
 folder = Rails.root.join('app/assets/images/equipment')
-mapped = mapping.find { |key, _| filename.downcase.include?(key) }
 
-if mapped
-  equipment = Equipment.find_by(name: mapped[1])
-else
-  # обычный поиск
-end
 def normalize_words(str)
   str.downcase.gsub(/[^a-z0-9а-яё\s]/i, '').split
 end
-
+Equipment.destroy_all
+mapping = {
+  "proma" => "Proma FP-20A",
+  "roven" => "Вентилятор осевой РОВЕН",
+  "jetdisc" => "JET Disc & Belt Sander JSG-64"
+}
 Dir.glob(folder.join('*')).each do |file_path|
+  mapped = mapping.find { |key, _| filename.downcase.include?(key) }
+
+  if mapped
+    equipment = Equipment.find_by(name: mapped[1])
+  else
+    # обычный поиск
+  end
   filename = File.basename(file_path, '.*')
   file_words = normalize_words(filename)
 
