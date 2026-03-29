@@ -52,23 +52,23 @@ mapping = {
   "roven" => "Вентилятор осевой РОВЕН",
   "jetdisc" => "JET Disc & Belt Sander JSG-64"
 }
+
 Dir.glob(folder.join('*')).each do |file_path|
+  filename = File.basename(file_path, '.*')
+
   mapped = mapping.find { |key, _| filename.downcase.include?(key) }
 
   if mapped
     equipment = Equipment.find_by(name: mapped[1])
   else
-    # обычный поиск
-  end
-  filename = File.basename(file_path, '.*')
-  file_words = normalize_words(filename)
+    file_words = normalize_words(filename)
 
-  equipment = Equipment.all.find do |e|
-    name_words = normalize_words(e.name)
-
-    # ищем пересечение слов
-    (file_words & name_words).any?
+    equipment = Equipment.all.find do |e|
+      name_words = normalize_words(e.name)
+      (file_words & name_words).any?
+    end
   end
+
 
   if equipment
     unless equipment.images.attached?
