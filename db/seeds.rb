@@ -50,7 +50,10 @@ end
 mapping = {
   "proma" => "Proma FP-20A",
   "roven" => "Вентилятор осевой РОВЕН",
-  "jetdisc" => "JET Disc & Belt Sander JSG-64"
+  "jetdisc" => "JET Disc & Belt Sander JSG-64",
+  "texenergo" => "Texenergo",
+  "duo130" => "Прокатный стан Дуо-130",
+  "sti" => "Testsystems СТИ ТС 2-1200"
 }
 
 Dir.glob(folder.join('*')).each do |file_path|
