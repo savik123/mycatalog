@@ -53,7 +53,12 @@ mapping = {
   "jetdisc" => "JET Disc & Belt Sander JSG-64",
   "texenergo" => "Texenergo",
   "duo130" => "Прокатный стан Дуо-130",
-  "sti" => "Testsystems СТИ ТС 2-1200"
+  "sti" => "Testsystems СТИ ТС 2-1200",
+  "ender" => "Creality Ender",
+  "mp29" => "Milling Machine MP29S",
+  "x32100" => "Metal Master X32100",
+  "photon" => "Anycubic Photon M3 Max",
+  "lukey" => "Lukey 702"
 }
 
 Dir.glob(folder.join('*')).each do |file_path|
