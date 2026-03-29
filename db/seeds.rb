@@ -1,6 +1,6 @@
 puts "🚀 CREATE EQUIPMENT"
 
-
+Equipment.destroy_all
 equipments = [
   { name: "JET Metal Lathe BD-10VS", purpose: "Токарная обработка металла", description: "Настольный токарный станок", keywords: "станок токарный металл" },
   { name: "Anycubic Photon M3 Max", purpose: "3D-печать (смола)", description: "3D-принтер для печати из фотополимерной смолы", keywords: "3d принтер смола" },
@@ -46,7 +46,7 @@ folder = Rails.root.join('app/assets/images/equipment')
 def normalize_words(str)
   str.downcase.gsub(/[^a-z0-9а-яё\s]/i, '').split
 end
-Equipment.destroy_all
+
 mapping = {
   "proma" => "Proma FP-20A",
   "roven" => "Вентилятор осевой РОВЕН",
