@@ -1,0 +1,95 @@
+
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-title {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+.fixed-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* обрезает красиво */
+}
+
+.card {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-text {
+    flex-grow: 1;
+}
+:root {
+    --primary-blue: #0d47a1;
+    --gradient-main: linear-gradient(135deg, #ffcc00, #ff5e00, #ff0066);
+}
+body {
+    background-color: #f5f7fb;
+}
+.header-urfu {
+    background: var(--primary-blue);
+    color: white;
+    padding: 30px 0;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 28px;
+}
+.gradient-bar {
+    height: 6px;
+    background: var(--gradient-main);
+}
+.btn-primary {
+    background: var(--primary-blue);
+    border: none;
+}
+.btn-primary {
+    background: var(--primary-blue);
+    border: none;
+}
+.card::after {
+    content: "";
+    height: 4px;
+    width: 100%;
+    display: block;
+    background: var(--gradient-main);
+}
+.input-group input {
+    border-radius: 8px 0 0 8px;
+}
+
+.input-group .btn {
+    border-radius: 0 8px 8px 0;
+}
+.title {
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.title:hover {
+    opacity: 0.85;
+}
+.favorite-btn {
+    border: none;
+    background: white;
+    border-radius: 50%;
+    padding: 8px;
+    font-size: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.favorite-btn.active {
+    background: #ffc107;
+}

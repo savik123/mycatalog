@@ -1,0 +1,22 @@
+<div class="container mt-4">
+  <h2>Избранное</h2>
+
+  <div class="row">
+    <% @equipments.each do |equipment| %>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+
+          <% if equipment.images.attached? %>
+            <%= image_tag equipment.images.first, class: "fixed-image" %>
+          <% end %>
+
+          <div class="card-body">
+            <h5><%= equipment.name %></h5>
+            <%= link_to "Подробнее", equipment_path(equipment), class: "btn btn-primary" %>
+          </div>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

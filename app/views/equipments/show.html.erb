@@ -1,0 +1,37 @@
+<div class="container mt-4">
+
+  <h1 class="mb-4"><%= @equipment.name %></h1>
+
+  <div class="card shadow">
+    <% @equipment.images.each do |image| %>
+      <%= image_tag image, width: 400 %>
+    <% end %>
+    <div class="card-body">
+
+      <p>
+        <strong>Назначение:</strong><br>
+        <%= @equipment.purpose %>
+      </p>
+
+      <p>
+        <strong>Область применения:</strong><br>
+        <%= @equipment.application %>
+      </p>
+
+      <p>
+        <strong>Описание принципа работы:</strong><br>
+        <%= @equipment.description %>
+      </p>
+
+      <p>
+        <strong>Рекомендации по использованию:</strong><br>
+        <%= @equipment.recommendations %>
+      </p>
+
+      <%= link_to "← Назад к каталогу", equipments_path, class: "btn btn-secondary mt-3" %>
+
+    </div>
+
+  </div>
+
+</div>
